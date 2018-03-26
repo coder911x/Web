@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Мониторинг игровых серверов</title>
+  <link rel="stylesheet" href="css/entry.css">
+</head>
+<body>
+ 
+  <div class="menu">
+    <div class="wrapper">
+      <a class="active" href="#Counter-Strike: Source">CSS</a>
+      <a href="#Counter-Strike 1.6">CS 1.6</a>
+      <a href="#Garry`s Mod">Garry's Mod</a>
+      <a href="#Half-Life 1 Deathmatch">HL1</a>
+      <a href="#Counter-Strike: Condition Zero">CS:CZ</a>
+      <a href="#Counter-Strike: Global Offensive">CS:GO</a>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="banner">
+      <a href="#main">Мониторинг игровых серверов</a>
+    </div>
+
+    <div id="main">
+      <div class="page-main">
+        <p>Этот сайт посвящен мониторингу игровых серверов. Вы всегда можете в режиме реального времени отслеживать состояние нужного вам сервера, количество активных игроков и многое другое. Также данный сайт будут полезен, если вы всё ещё не нашли свой сервер, а поиграть хочется.</p>
+        <div class="logo-container">
+          <a href="#Counter-Strike: Source" class="logo css"></a>
+          <a href="#Counter-Strike 1.6" class="logo cs-1-6"></a>
+          <a href="#Garry`s Mod" class="logo gmod"></a>
+          <a href="#Half-Life 1 Deathmatch" class="logo hl1"></a>
+          <a href="#Counter-Strike: Condition Zero" class="logo cscz"></a>
+          <a href="#Counter-Strike: Global Offensive" class="logo csgo"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ложкин Дмитрий, 2018</div>
+  </div>
+  <script src="js/web-events-client.js"></script>
+  <script src="js/ExtendDOM.js"></script>
+  <script src="js/utils.js"></script>
+  <script>
+    var games = [];
+
+    function router() {
+      var route = decodeURI(location.hash.slice(1));
+      
+      $('.menu a').removeClass('active');
+      $('.menu a[href="#' + route + '"]').addClass('active');
+
+      if (route == 'main')
+        console.log('Главная') // Главная страница
+      else if (games.indexOf(route) > -1)
+        console.log(route) // Показать страницу игры
+      else
+        console.log('Not Found 404') // Not Found 404
+    }
+
+    var socket = events('wss://game-monitoring-server.herokuapp.com', {
+      connection() {
+        return ['getGamesList'];
+      },
+      
+      recieveGameList(gamesList) {
+        console.log(gamesList);
+        games = gamesList;
+        router();
+        window.onhashchange = router;
+      }
+    })
+  </script>
+</body>
+</html>

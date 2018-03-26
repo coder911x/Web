@@ -1,0 +1,13 @@
+/**** Баннер ****/
+
+.banner {
+  position: relative;
+  height: 200px;
+  background: url(../images/css-banner.jpg) no-repeat center center / 100%
+}
+
+.banner a {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}

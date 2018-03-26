@@ -1,0 +1,16 @@
+/**** Глобальные стили приложения ****/
+
+html {
+  min-height: 100vh;
+  background: #221F02;
+  font: 16px Roboto;
+}
+
+.wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
