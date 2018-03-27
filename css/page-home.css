@@ -1,6 +1,6 @@
 /**** Главная страница сайта ****/
 
-.page-main {
+.page-home {
   box-sizing: border-box;
   padding: 20px;
   
@@ -16,11 +16,11 @@
   text-align: center;
 }
 
-.page-main p {
+.page-home p {
   margin-bottom: 50px;
 }
 
-.page-main .logo {
+.page-home .logo {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -28,26 +28,26 @@
   background: no-repeat center / contain;
 }
 
-.page-main .css {
+.page-home .css {
   background-image: url(../images/logo/css.png);
 }
 
-.page-main .cs-1-6 {
+.page-home .cs-1-6 {
   background-image: url(../images/logo/cs1.6.png);
 }
 
-.page-main .gmod {
+.page-home .gmod {
   background-image: url(../images/logo/gmod.jpg);
 }
 
-.page-main .hl1 {
+.page-home .hl1 {
   background-image: url(../images/logo/hl1.jpeg);
 }
 
-.page-main .cscz {
+.page-home .cscz {
   background-image: url(../images/logo/cscz.png);
 }
 
-.page-main .csgo {
+.page-home .csgo {
   background-image: url(../images/logo/csgo.png);
 }

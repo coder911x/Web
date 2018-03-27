@@ -30,8 +30,3 @@ a:hover,
   text-shadow: 0 0 15px #fff;
   transform: scale(1.1);
 }
-
-a[href="#main"]:hover {
-  transform: translateX(15px) scale(1.1);
-  text-shadow: 0 0 25px #000;
-}

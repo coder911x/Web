@@ -1,25 +1,29 @@
 /* Ядро для работы с DOM */
 
 var $ = function(selector) {
-  return new ExtendDOM(document.querySelectorAll(selector));
+  return new ExtendedDOM(
+    selector instanceof Node
+      ? selector
+      : document.querySelectorAll(selector)
+  );
 }
 
-function ExtendDOM(elements) {
+function ExtendedDOM(elements) {
   this.elements = elements;
 }
 
 // Фильтрует выборку по тексту
-ExtendDOM.prototype.ifText = function(text) {
+ExtendedDOM.prototype.ifText = function(text) {
   var filtered = [];
   this.elements.forEach(function(element) {
     if (element.textContent == text)
       filtered.push(element)
   });
-  return new ExtendDOM(filtered);
+  return new ExtendedDOM(filtered);
 };
 
 // Удаляет у всех элементов выборки класс
-ExtendDOM.prototype.removeClass = function(name) {
+ExtendedDOM.prototype.removeClass = function(name) {
   this.elements.forEach(function(element) {
     element.classList.remove(name);
   });
@@ -27,7 +31,7 @@ ExtendDOM.prototype.removeClass = function(name) {
 };
 
 // Добавляет ко всем элементам выборки класс
-ExtendDOM.prototype.addClass = function(name) {console.log(this)
+ExtendedDOM.prototype.addClass = function(name) {
   this.elements.forEach(function(element) {
     element.classList.add(name);
   });

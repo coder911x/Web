@@ -11,3 +11,8 @@
   bottom: 5px;
   left: 5px;
 }
+
+.banner a[href="#home"]:hover {
+  transform: translateX(15px) scale(1.1);
+  text-shadow: 0 0 25px #000;
+}
