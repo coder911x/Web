@@ -10,7 +10,7 @@ function webEvents(serverURL, evs) {
     }
 
     // Версия web-events-client
-    var VERSION = '2.1.0';
+    var VERSION = '2.2.2';
 
     /*
         Обёртка над пользовательским событием
@@ -73,6 +73,13 @@ function webEvents(serverURL, evs) {
         случае клиент получит один объект целиком
     */
     function emit(eventName) {
+        if (socket.readyState == WebSocket.CONNECTING) {
+            setTimeout(function() {
+                emit.apply(arguments);
+            }, 4);
+            return;
+        }
+        
         // Аргументы вызова, отправляемые серверу
         var args = Array.prototype.slice.call(arguments, 1);
 
@@ -94,7 +101,7 @@ function webEvents(serverURL, evs) {
         и обработчиками событий
     */
     function reconnect() {
-        if (WebSocket.OPEN)
+        if (socket.readyState == WebSocket.OPEN)
             socket.close();
         connect();
     }
@@ -104,13 +111,15 @@ function webEvents(serverURL, evs) {
         socket = null,
 
         // Функциональность клиента (возвращается из функции events)
-        client = {
-            emit: emit,             // Вызвать событие
-            disconnect: disconnect, // Отключиться
-            reconnect: reconnect,   // Переподключиться
-            version: VERSION        // Версия web-events-client
+        client = function() {
+            emit.apply(null, arguments);
+            return client;
         };
 
+        client.emit = emit;             // Вызвать событие
+        client.disconnect = disconnect; // Отключиться
+        client.reconnect = reconnect;   // Переподключиться
+        client.version = VERSION;       // Версия web-events-client
 
     /*
         Данная функция подключается к WebSocket серверу

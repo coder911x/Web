@@ -53,30 +53,9 @@
   <script src="js/web-events-client.js"></script>
   <script src="js/ExtendedDOM.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/namespace.js"></script>
   <script src="js/updateServersInfo.js"></script>
   <script src="js/router.js"></script>
-  <script>
-    var games = [
-      "Counter-Strike: Source",
-      "Counter-Strike 1.6",
-      "Garry`s Mod",
-      "Half-Life 1 Deathmatch",
-      "Counter-Strike: Condition Zero",
-      "Counter-Strike: Global Offensive"
-    ];
-
-    router();
-    window.onhashchange = router;
-
-    var socket = events('wss://game-monitoring-server.herokuapp.com', {
-      connection: function() {
-        return ['getGamesList'];
-      },
-      
-      recieveGameList: function(gamesList) {
-        console.log(gamesList);
-      }
-    })
-  </script>
+  <script src="js/server-communication.js"></script>
 </body>
 </html>
