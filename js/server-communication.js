@@ -2,17 +2,20 @@
 void function(ns) {
   var router = ns.router;
 
-  ns.socket = events('wss://game-monitoring-server.herokuapp.com', {
+  ns.socket = events(ns.serverURL, {
     connection: function() {
-      console.log('[' + utils.getTime() + '] Open conntection'); // DEBUG
+      if (DEBUG)
+        console.log('[' + utils.getTime() + '] Open conntection');
       return ['getGamesList'];
     },
     close: function() {
-      console.log('[' + utils.getTime() + '] Close conntection'); // DEBUG
+      if (DEBUG)
+        console.log('[' + utils.getTime() + '] Close conntection');
       ns.socket.reconnect();
     },
     ping: function() {
-      console.log('[' + utils.getTime() + '] Recieved a ping'); // DEBUG
+      if (DEBUG)
+        console.log('[' + utils.getTime() + '] Recieved a ping');
     },
     recieveGamesList: function(gamesList) {
       console.log(gamesList);

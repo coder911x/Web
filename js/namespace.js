@@ -1,4 +1,11 @@
+// Флаг режима отладки
+var DEBUG = true;
+
 var monitoringNamespace = {
+  // URL-адрес сервера
+  serverURL: DEBUG
+    ? 'ws://localhost:85'
+    : 'wss://game-monitoring-server.herokuapp.com',
   // Список поддерживаемых игр
   games: [
     "Counter-Strike: Source",
@@ -13,3 +20,6 @@ var monitoringNamespace = {
   // Сокет для общения с сервером
   socket: null
 };
+
+if (DEBUG)
+  console.log('Сайт запущен в режиме отладки!')
