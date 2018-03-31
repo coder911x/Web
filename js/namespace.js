@@ -22,4 +22,4 @@ var monitoringNamespace = {
 };
 
 if (DEBUG)
-  console.log('Сайт запущен в режиме отладки!')
+  console.log('Сайт запущен в режиме отладки!');

@@ -1,21 +1,24 @@
 /**** Тут всё, что касается коммуникации клиента с сервером  ****/
 void function(ns) {
-  var router = ns.router;
+  var
+    router = ns.router,
+    getTime = utils.getTime,
+    escape = utils.escape; // CD
 
   ns.socket = events(ns.serverURL, {
     connection: function() {
       if (DEBUG)
-        console.log('[' + utils.getTime() + '] Open conntection');
+        console.log('[' + getTime() + '] Open conntection');
       return ['getGamesList'];
     },
     close: function() {
       if (DEBUG)
-        console.log('[' + utils.getTime() + '] Close conntection');
+        console.log('[' + getTime() + '] Close conntection');
       ns.socket.reconnect();
     },
     ping: function() {
       if (DEBUG)
-        console.log('[' + utils.getTime() + '] Recieved a ping');
+        console.log('[' + getTime() + '] Recieved a ping');
     },
     recieveGamesList: function(gamesList) {
       console.log(gamesList);
@@ -25,14 +28,7 @@ void function(ns) {
       var markup = '';
       servers.forEach(function(server) {
         if (!server.online) return;
-        markup += 
-          '<tr>' +
-            '<td>' + server.name + '</td>' +
-            '<td>' + server.map + '</td>' +
-            '<td>' + server.ip + ':' + server.port + '</td>' +
-            '<td>' + (server.players + server.bots.length) + ' / ' + server.maxPlayers + '</td>' +
-            '<td>' + server.password + '</td>' +
-          '</tr>';
+        markup += mUtils.createRowMarkup(server);
       });
       $('.servers-list').html(markup);
     },

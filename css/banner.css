@@ -3,13 +3,17 @@
 .banner {
   position: relative;
   height: 200px;
-  background: url(../images/css-banner.jpg) no-repeat center center / 100%
+  background-image: url(../images/css-banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .banner a {
   position: absolute;
   bottom: 5px;
   left: 5px;
+  text-shadow: 0 0 50px #000;
 }
 
 .banner a[href="#home"]:hover {

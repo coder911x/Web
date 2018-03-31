@@ -1,9 +1,13 @@
-/* Ядро для работы с DOM */
-
+/**
+ * Ядро для работы с DOM
+ * 
+ * Зависимости:
+ * > escape(utils.js) - экранирование HTML
+ */ 
 var $ = function(selector) {
   return new ExtendedDOM(
     selector instanceof Node
-      ? selector
+      ? [selector]
       : document.querySelectorAll(selector)
   );
 }
@@ -50,6 +54,22 @@ ExtendedDOM.prototype.html = function(markup) {
       : undefined;
   this.elements.forEach(function(element) {
     element.innerHTML = markup;
+  });
+  return this;
+};
+
+/*
+  Функция установки всем элементам выборки внутреннего текста,
+  если передаётся 1 параметр. Если же аргументов нет, то возвращается
+  текстовое содержимое первого элемента выборки, если таковой имеется
+*/
+ExtendedDOM.prototype.text = function(text) {
+  if (text === undefined)
+    return this.elements[0]
+      ? this.elements[0].textContent
+      : undefined;
+  this.elements.forEach(function(element) {
+    element.textContent = utils.escape(text);
   });
   return this;
 };

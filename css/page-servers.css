@@ -1,5 +1,7 @@
 /**** Страница со списком серверов ****/
+@import url(page-servers-table.css);
+@import url(page-servers-aside.css);
 
-.servers {
-  width: 100%;
+.page-servers {
+  display: flex;
 }

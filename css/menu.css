@@ -13,9 +13,8 @@
   z-index: 100;
 }
 
-.menu .wrapper {
-  display: flex;
-  justify-content: space-around;
+.menu a {
+  margin-left: 10px;
 }
 
 a {
