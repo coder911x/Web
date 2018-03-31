@@ -1,6 +1,7 @@
 .content-container {
   box-sizing: border-box;
   min-height: calc(100vh - 200px - 51px);
+  padding: 10px;
   background: #3F3A0A;
   border: 2px solid #2A2812;
 }

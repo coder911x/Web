@@ -10,7 +10,7 @@ function webEvents(serverURL, evs) {
     }
 
     // Версия web-events-client
-    var VERSION = '2.2.2';
+    var VERSION = '2.2.3';
 
     /*
         Обёртка над пользовательским событием
@@ -73,15 +73,15 @@ function webEvents(serverURL, evs) {
         случае клиент получит один объект целиком
     */
     function emit(eventName) {
-        if (socket.readyState == WebSocket.CONNECTING) {
-            setTimeout(function() {
-                emit.apply(arguments);
+        var args = arguments;
+        // Если вызов произошёл до того как соединение было установлено
+        if (socket.readyState == WebSocket.CONNECTING)
+            return setTimeout(function() {
+                emit.apply(client, args);
             }, 4);
-            return;
-        }
-        
+
         // Аргументы вызова, отправляемые серверу
-        var args = Array.prototype.slice.call(arguments, 1);
+        args = Array.prototype.slice.call(arguments, 1);
 
         socket.send(JSON.stringify({
             type: eventName,

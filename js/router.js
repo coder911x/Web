@@ -13,12 +13,14 @@ void function(ns) {
     $('.menu a').removeClass('active');
     $('.menu a[href="#' + route + '"]').addClass('active');
 
-    if (route == 'home')
+    if (route == 'home') {
       views.show('home');
-    else if (games.indexOf(route) > -1)
-      updateServersInfo(), views.show('servers')
-    else
+    } else if (games.indexOf(route) > -1) {
+      ns.socket('getGameData', route);
+      views.show('servers');
+    } else {
       views.show('404');
+    }
   }
 
   /* Объект представлений (страниц) сайта */

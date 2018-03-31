@@ -37,3 +37,19 @@ ExtendedDOM.prototype.addClass = function(name) {
   });
   return this;
 };
+
+/*
+  Функция установки всем элементам выборки внутренней разметки,
+  если передаётся 1 параметр. Если же аргументов нет, то возвращается
+  разметка первого элемента выборки, если таковой имеется
+*/
+ExtendedDOM.prototype.html = function(markup) {
+  if (markup === undefined)
+    return this.elements[0]
+      ? this.elements[0].innerHTML
+      : undefined;
+  this.elements.forEach(function(element) {
+    element.innerHTML = markup;
+  });
+  return this;
+};

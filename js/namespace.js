@@ -10,8 +10,6 @@ var monitoringNamespace = {
   ],
   // Маршрутизирующая функция
   router: null,
-  // Обновление таблицы серверов
-  updateServersInfo: null,
   // Сокет для общения с сервером
   socket: null
 };

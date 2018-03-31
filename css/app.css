@@ -4,6 +4,7 @@ html {
   min-height: 100vh;
   background: #221F02;
   font: 16px Roboto;
+  color: #ccc;
 }
 
 .wrapper {

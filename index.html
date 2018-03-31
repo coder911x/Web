@@ -39,7 +39,16 @@
       </div>
       <div class="page-servers hidden">
         <table class="servers">
-          
+          <thead class="servers-header">
+            <tr>
+              <th>Название сервера</th>
+              <th>Карта</th>
+              <th>Адрес : порт</th>
+              <th>Слоты</th>
+              <th>Пароль</th>
+            </tr>
+          </thead>
+          <tbody class="servers-list"></tbody>
         </table>
       </div>
       <div class="page-404 hidden">
@@ -53,8 +62,8 @@
   <script src="js/web-events-client.js"></script>
   <script src="js/ExtendedDOM.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/monitorting-utils.js"></script>
   <script src="js/namespace.js"></script>
-  <script src="js/updateServersInfo.js"></script>
   <script src="js/router.js"></script>
   <script src="js/server-communication.js"></script>
 </body>
