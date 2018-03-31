@@ -4,10 +4,15 @@ void function(ns) {
 
   ns.socket = events('wss://game-monitoring-server.herokuapp.com', {
     connection: function() {
+      console.log('[' + utils.getTime() + '] Open conntection'); // DEBUG
       return ['getGamesList'];
     },
-    close() {
+    close: function() {
+      console.log('[' + utils.getTime() + '] Close conntection'); // DEBUG
       ns.socket.reconnect();
+    },
+    ping: function() {
+      console.log('[' + utils.getTime() + '] Recieved a ping'); // DEBUG
     },
     recieveGamesList: function(gamesList) {
       console.log(gamesList);
