@@ -13,7 +13,7 @@ void function() {
   // Возвращает разметку одной ячейки таблицы
   function getTableDataMarkup(content, customClass, href) {
     return '<td ' + attr('class', customClass) + ' ' + attr('title', content) + '>' +
-        (href ? '<a href="#server' + utils.getQueryString(href) + '">' : '')
+        (href ? '<a href="#server-info' + utils.serializeQueryString(href) + '">' : '')
           + content + 
         (href ? '</a>' : '') +
       '</td>';
@@ -22,7 +22,7 @@ void function() {
   // Возвращает разметку ряда таблицы
   function createRowMarkup(server) {
     var hrefData = {
-      ip: server.ip,
+      address: server.ip,
       port: server.port,
       game: utils.getHash()
     };

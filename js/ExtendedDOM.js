@@ -1,8 +1,5 @@
 /**
  * Ядро для работы с DOM
- * 
- * Зависимости:
- * > escape(utils.js) - экранирование HTML
  */ 
 var $ = function(selector) {
   return new ExtendedDOM(
@@ -72,7 +69,7 @@ ExtendedDOM.prototype.text = function(text) {
       ? this.elements[0].textContent
       : undefined;
   Array.prototype.forEach.call(this.elements, function(element) {
-    element.textContent = utils.escape(text);
+    element.textContent = text;
   });
   return this;
 };

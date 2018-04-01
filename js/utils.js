@@ -15,6 +15,16 @@ var utils = {
     return decodeURIComponent(result);
   },
 
+  // Возвращает текущую строку запроса
+  getQueryString: function() {
+    if (location.search)
+      return location.search;
+    var queryStart = location.hash.indexOf('?');
+    return queryStart > -1
+      ? location.hash.slice(queryStart)
+      : '';
+  },
+
   // Возвращает местное время в формате "день.месяц.год часы:минуты:секунды"
   getTime: function() {
     var now = new Date;
@@ -40,11 +50,40 @@ var utils = {
   },
 
   // Сериализация объекта в строку запроса
-  getQueryString: function(obj) {
+  serializeQueryString: function(obj) {
     var result = '?';
     for (var key in obj)
       result += encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]) + '&';
     return result.slice(0, result.length - 1);
+  },
+
+  // Парсит строку запроса в объект
+  parseQueryString: function(string) {
+    var
+      key = '',
+      value = '',
+      isKey = true,
+      result = {};
+
+    for (var i = 1; i < string.length; i++) {
+      var char = string[i];
+      if (char == '=') {
+        isKey = false;
+      } else if (char == '&'){
+        result[key] = decodeURIComponent(value);
+        key = '';
+        value = '';
+        isKey = true;
+      } else {
+        if (isKey) {
+          key += char;
+        } else {
+          value += char;
+        }
+      }
+    }
+    result[key] = decodeURIComponent(value);
+    return result;
   }
 };
 

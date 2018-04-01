@@ -20,7 +20,9 @@ var monitoringNamespace = {
   // Сокет для общения с сервером
   socket: null,
   // Текущий массив с информацией о серверах
-  servers: []
+  servers: [],
+  // Объект представлений страницы
+  views: null
 };
 
 if (DEBUG)

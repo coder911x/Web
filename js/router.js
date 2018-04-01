@@ -12,9 +12,19 @@ void function(ns) {
     
     $('.menu a').removeClass('active');
     $('.menu a[href="#' + route + '"]').addClass('active');
+    $('#message-404').text('Запрашиваемая страница не найдена!');
 
     if (route == 'home') {
       views.show('home');
+    } else if (route == 'server-info') {
+      let query = utils.parseQueryString(utils.getQueryString());
+      console.log(query);
+      if (!query.address || !query.port || !query.game) {
+        views.show('404');
+      } else {
+        ns.socket('getServerInfo', query.address, query.port, query.game);
+        views.show('server-info');
+      }
     } else if (games.indexOf(route) > -1) {
       ns.socket('getGameData', route);
       $('#game-select').val(route);
@@ -26,15 +36,16 @@ void function(ns) {
 
   /* Объект представлений (страниц) сайта */
   var views = {
-    pages: ['home', 'servers', '404'],
+    pages: ['home', 'servers', '404', 'server-info'],
     show: function(target) {
       $('.page-' + this.pages.join(', .page-')).addClass('hidden');
       $('.page-' + target).removeClass('hidden');
-      ~['home', '404'].indexOf(target)
+      ~['home', '404', 'server-info'].indexOf(target)
         ? $('.content-container').addClass('centeredContent')
         : $('.content-container').removeClass('centeredContent');
     }
   };
 
   ns.router = router;
+  ns.views = views;
 }(monitoringNamespace);
