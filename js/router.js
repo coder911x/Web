@@ -17,6 +17,7 @@ void function(ns) {
       views.show('home');
     } else if (games.indexOf(route) > -1) {
       ns.socket('getGameData', route);
+      $('#game-select').val(route);
       views.show('servers');
     } else {
       views.show('404');

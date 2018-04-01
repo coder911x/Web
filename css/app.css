@@ -39,6 +39,14 @@ input[type="button"]:active {
   background: #111;
 }
 
+input[type="button"]:disabled {
+  color: #444;
+}
+
+input[type="button"]:disabled {
+  background: #222;
+}
+
 select {
   background-image: url(../images/menu-arrow.svg);
   background-repeat: no-repeat;

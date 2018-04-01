@@ -2,8 +2,7 @@
 void function(ns) {
   var
     router = ns.router,
-    getTime = utils.getTime,
-    escape = utils.escape; // CD
+    getTime = utils.getTime;
 
   ns.socket = events(ns.serverURL, {
     connection: function() {
@@ -21,16 +20,17 @@ void function(ns) {
     },
     recieveGameData: function(servers) {
       console.log(servers);
-      var markup = '';
-      servers.forEach(function(server) {
-        if (!server.online) return;
-        markup += mUtils.createRowMarkup(server);
-      });
-      $('.servers-list').html(markup);
+      ns.servers = servers;
+      mUtils.fillTable(servers);
     },
     error: function(message) {
-      console.log('[Error]\n', message, '\n[END]');
-    }
+      $('#add-server-button').prop('disabled', false);
+      alert('Ошибка!\n' + message);
+    },
+    serverAdded: function(message) {
+      $('#add-server-button').prop('disabled', false);
+      alert(message);
+    },
   });
 
   // Первичная маршрутизация

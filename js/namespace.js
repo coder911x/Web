@@ -18,7 +18,9 @@ var monitoringNamespace = {
   // Маршрутизирующая функция
   router: null,
   // Сокет для общения с сервером
-  socket: null
+  socket: null,
+  // Текущий массив с информацией о серверах
+  servers: []
 };
 
 if (DEBUG)

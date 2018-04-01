@@ -60,13 +60,13 @@
             <label>
               <span>Слоты</span>
               <div class="double-field">
-                <input id="filter-slots-min" type="text"><span class="delimiter"></span><input id="filter-slots-min" type="text">
+                <input id="filter-slots-min" type="text"><span class="delimiter"></span><input id="filter-slots-max" type="text">
               </div>
             </label>
             <label>
               <span>Онлайн</span>
               <div class="double-field">
-                <input id="field-online-min" type="text"><span class="delimiter"></span><input id="field-online-min" type="text">
+                <input id="filter-online-min" type="text"><span class="delimiter"></span><input id="filter-online-max" type="text">
               </div>
             </label>
             <label>
@@ -78,23 +78,23 @@
               <input id="filter-port" type="text">
             </label>
             <label>
-              <input type="checkbox" id="filter-dont-show-filled">
+              <input id="filter-no-bots" type="checkbox" id="filter-dont-show-filled">
               <div></div>
               <span class="checkbox-label">Без ботов</span>
             </label>
             <label>
-              <input type="checkbox" id="filter-dont-show-filled">
+              <input id="filter-no-password" type="checkbox" id="filter-dont-show-filled">
               <div></div>
               <span class="checkbox-label">Без пароля</span>
             </label>
             <label>
-              <input type="checkbox" id="filter-dont-show-filled">
+              <input id="filter-not-full" type="checkbox" id="filter-dont-show-filled">
               <div></div>
               <span class="checkbox-label">Не показыать заполненные сервера</span>
             </label>
             <div class="double-button flex">
-              <input type="button" value="Применить">
-              <input type="button" value="Сбросить">
+              <input id="filter-apply-button" type="button" value="Применить">
+              <input id="filter-reset-button" type="button" value="Сбросить">
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@
               </select>
             </label>
             <label>
-              <input type="button" value="Добавить">
+              <input id="add-server-button" type="button" value="Добавить">
             </label>
           </div>
         </div>
@@ -138,5 +138,6 @@
   <script src="js/namespace.js"></script>
   <script src="js/router.js"></script>
   <script src="js/server-communication.js"></script>
+  <script src="js/handlers.js"></script>
 </body>
 </html>

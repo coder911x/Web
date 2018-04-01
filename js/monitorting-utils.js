@@ -19,23 +19,32 @@ void function() {
       '</td>';
   }
 
+  // Возвращает разметку ряда таблицы
+  function createRowMarkup(server) {
+    var hrefData = {
+      ip: server.ip,
+      port: server.port,
+      game: utils.getHash()
+    };
+    return '<tr>' +
+      getTableDataMarkup(escape(server.name), 'name', hrefData) +
+      getTableDataMarkup(escape(server.map), 'map') +
+      getTableDataMarkup(
+        (server.players + server.bots.length) + '/' + server.maxPlayers,
+        'slots'
+      ) +
+      getTableDataMarkup(escape(server.ip + ':' + server.port), 'scoket') +
+    '</tr>'
+  }
+
   window.mUtils = {
-    // Возвращает разметку ряда таблицы
-    createRowMarkup: function(server) {
-      var hrefData = {
-        ip: server.ip,
-        port: server.port,
-        game: utils.getHash()
-      };
-      return '<tr>' +
-        getTableDataMarkup(escape(server.name), 'name', hrefData) +
-        getTableDataMarkup(escape(server.map), 'map') +
-        getTableDataMarkup(
-          (server.players + server.bots.length) + '/' + server.maxPlayers,
-          'slots'
-        ) +
-        getTableDataMarkup(escape(server.ip + ':' + server.port), 'scoket') +
-      '</tr>'
+    fillTable: function(servers) {
+      var markup = '';
+      servers.forEach(function(server) {
+        if (!server.online) return;
+        markup += createRowMarkup(server);
+      });
+      $('.servers-list').html(markup);
     }
   };
 }();

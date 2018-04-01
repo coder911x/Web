@@ -76,3 +76,55 @@ ExtendedDOM.prototype.text = function(text) {
   });
   return this;
 };
+
+// Устанавливает всем элементам выборки обработчик клика
+ExtendedDOM.prototype.click = function(callback) {
+  Array.prototype.forEach.call(this.elements, function(element) {
+    element.addEventListener('click', callback);
+  });
+  return this;
+};
+
+/*
+  Функция установки всем элементам выборки значения value,
+  если передаётся 1 параметр. Если же аргументов нет, то возвращается
+  value первого элемента выборки, если таковой имеется
+*/
+ExtendedDOM.prototype.value = function(data) {
+  if (data === undefined)
+    return this.elements[0]
+      ? this.elements[0].value
+      : undefined;
+  Array.prototype.forEach.call(this.elements, function(element) {
+    element.value = data;
+  });
+  return this;
+};
+
+/*
+  Функция аналогичная value, однако к её результату применяется trim()
+*/
+ExtendedDOM.prototype.val = function(data) {
+  var ret = this.value(data);
+  return ret == undefined
+    ? undefined
+    : ret == this
+      ? this
+      : ret.trim();
+};
+
+/*
+  Функция установки всем элементам выборки значения value,
+  если передаётся 1 параметр. Если же аргументов нет, то возвращается
+  value первого элемента выборки, если таковой имеется
+*/
+ExtendedDOM.prototype.prop = function(name, value) {
+  if (value == undefined)
+    return this.elements[0]
+      ? this.elements[0][name]
+      : undefined;
+  Array.prototype.forEach.call(this.elements, function(element) {
+    element[name] = value;
+  });
+  return this;
+};
