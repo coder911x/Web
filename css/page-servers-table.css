@@ -1,7 +1,12 @@
 /**** Таблица серверов ****/
 
-.servers {
+.table-wrapper {
+  box-sizing: border-box;
   width: calc(100% - 240px);
+}
+
+.servers {
+  width: 100%; 
   border-radius: 50px;
   table-layout: fixed;
   border-collapse: collapse;

@@ -10,6 +10,7 @@
 <body>
  
   <div class="menu">
+    <a href="#home">Главная</a>
     <a href="#Counter-Strike: Source">CSS</a>
     <a href="#Counter-Strike 1.6">CS 1.6</a>
     <a href="#Garry`s Mod">Garry's Mod</a>
@@ -17,12 +18,6 @@
     <a href="#Counter-Strike: Condition Zero">CS:CZ</a>
     <a href="#Counter-Strike: Global Offensive">CS:GO</a>
   </div>
-
-  <a href="#home">
-    <div class="banner-wrapper">
-      <div class="banner"></div>
-    </div>
-  </a>
 
   <div class="content-container">
     <div class="page-home hidden">
@@ -37,17 +32,19 @@
       </div>
     </div>
     <div class="page-servers hidden">
-      <table class="servers">
-        <thead class="servers-header">
-          <tr>
-            <th>Название сервера</th>
-            <th>Карта</th>
-            <th>Слоты</th>
-            <th>Сокет</th>
-          </tr>
-        </thead>
-        <tbody class="servers-list"></tbody>
-      </table>
+      <div class="table-wrapper">
+        <table class="servers">
+          <thead class="servers-header">
+            <tr>
+              <th>Название сервера</th>
+              <th>Карта</th>
+              <th>Слоты</th>
+              <th>Сокет</th>
+            </tr>
+          </thead>
+          <tbody class="servers-list"></tbody>
+        </table>
+      </div>
       <div class="aside">
         <div class="panel filter">
           <div class="panel-header">Фильтры</div>

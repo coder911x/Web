@@ -9,7 +9,6 @@ void function(ns) {
     connection: function() {
       if (DEBUG)
         console.log('[' + getTime() + '] Open conntection');
-      return ['getGamesList'];
     },
     close: function() {
       if (DEBUG)
@@ -19,9 +18,6 @@ void function(ns) {
     ping: function() {
       if (DEBUG)
         console.log('[' + getTime() + '] Recieved a ping');
-    },
-    recieveGamesList: function(gamesList) {
-      console.log(gamesList);
     },
     recieveGameData: function(servers) {
       console.log(servers);

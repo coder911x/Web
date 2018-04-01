@@ -26,10 +26,13 @@ ExtendedDOM.prototype.ifText = function(text) {
   return new ExtendedDOM(filtered);
 };
 
-// Удаляет у всех элементов выборки класс
-ExtendedDOM.prototype.removeClass = function(name) {
+// Удаляет у всех элементов выборки класс(ы)
+ExtendedDOM.prototype.removeClass = function(names) {
+  names = names.split(' ');
+  var len = names.length;
   Array.prototype.forEach.call(this.elements, function(element) {
-    element.classList.remove(name);
+    for (var i = 0; i < len; i++)
+      element.classList.remove(names[i]);
   });
   return this;
 };
