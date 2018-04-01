@@ -15,15 +15,6 @@ var monitoringNamespace = {
     "Counter-Strike: Condition Zero",
     "Counter-Strike: Global Offensive"
   ],
-  // Псевдонимы игр из games
-  aliases: [
-    'css',
-    'cs1-6',
-    'gmod',
-    'hl1',
-    'cscz',
-    'csgo'
-  ],
   // Маршрутизирующая функция
   router: null,
   // Сокет для общения с сервером
