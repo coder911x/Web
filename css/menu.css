@@ -23,7 +23,7 @@ a {
   font-size: 1.2rem;
 }
 
-a:hover,
+.menu a:hover,
 .menu a.active {
   color: #fff;
   text-shadow: 0 0 15px #fff;

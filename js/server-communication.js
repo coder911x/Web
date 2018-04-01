@@ -32,7 +32,7 @@ void function(ns) {
       });
       $('.servers-list').html(markup);
     },
-    error(message) {
+    error: function(message) {
       console.log('[Error]\n', message, '\n[END]');
     }
   });

@@ -17,3 +17,8 @@
 .page-404 a {
   color: #fff;
 }
+
+.page-404 a:hover {
+  text-shadow: 0 0 15px #fff;
+  transform: scale(1.1);
+}

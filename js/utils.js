@@ -40,7 +40,7 @@ var utils = {
   },
 
   // Сериализация объекта в строку запроса
-  getQueryString(obj) {
+  getQueryString: function(obj) {
     var result = '?';
     for (var key in obj)
       result += encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]) + '&';

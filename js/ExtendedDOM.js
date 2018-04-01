@@ -19,7 +19,7 @@ function ExtendedDOM(elements) {
 // Фильтрует выборку по тексту
 ExtendedDOM.prototype.ifText = function(text) {
   var filtered = [];
-  this.elements.forEach(function(element) {
+  Array.prototype.forEach.call(this.elements, function(element) {
     if (element.textContent == text)
       filtered.push(element)
   });
@@ -28,7 +28,7 @@ ExtendedDOM.prototype.ifText = function(text) {
 
 // Удаляет у всех элементов выборки класс
 ExtendedDOM.prototype.removeClass = function(name) {
-  this.elements.forEach(function(element) {
+  Array.prototype.forEach.call(this.elements, function(element) {
     element.classList.remove(name);
   });
   return this;
@@ -36,7 +36,7 @@ ExtendedDOM.prototype.removeClass = function(name) {
 
 // Добавляет ко всем элементам выборки класс
 ExtendedDOM.prototype.addClass = function(name) {
-  this.elements.forEach(function(element) {
+  Array.prototype.forEach.call(this.elements, function(element) {
     element.classList.add(name);
   });
   return this;
@@ -52,7 +52,7 @@ ExtendedDOM.prototype.html = function(markup) {
     return this.elements[0]
       ? this.elements[0].innerHTML
       : undefined;
-  this.elements.forEach(function(element) {
+  Array.prototype.forEach.call(this.elements, function(element) {
     element.innerHTML = markup;
   });
   return this;
@@ -68,7 +68,7 @@ ExtendedDOM.prototype.text = function(text) {
     return this.elements[0]
       ? this.elements[0].textContent
       : undefined;
-  this.elements.forEach(function(element) {
+  Array.prototype.forEach.call(this.elements, function(element) {
     element.textContent = utils.escape(text);
   });
   return this;

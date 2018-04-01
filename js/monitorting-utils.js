@@ -21,7 +21,7 @@ void function() {
 
   window.mUtils = {
     // Возвращает разметку ряда таблицы
-    createRowMarkup(server) {
+    createRowMarkup: function(server) {
       var hrefData = {
         ip: server.ip,
         port: server.port,

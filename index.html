@@ -18,9 +18,11 @@
     <a href="#Counter-Strike: Global Offensive">CS:GO</a>
   </div>
 
-  <div class="banner">
-    <a href="#home">Мониторинг игровых серверов</a>
-  </div>
+  <a href="#home">
+    <div class="banner-wrapper">
+      <div class="banner"></div>
+    </div>
+  </a>
 
   <div class="content-container">
     <div class="page-home hidden">
@@ -47,7 +49,82 @@
         <tbody class="servers-list"></tbody>
       </table>
       <div class="aside">
-        Тут будут фильтры
+        <div class="panel filter">
+          <div class="panel-header">Фильтры</div>
+          <div class="panel-content">
+            <label>
+              <span>Название</span>
+              <input id="filter-name" type="text">
+            </label>
+            <label>
+              <span>Карта</span>
+              <input id="filter-map" type="text">
+            </label>
+            <label>
+              <span>Слоты</span>
+              <div class="double-field">
+                <input id="filter-slots-min" type="text"><span class="delimiter"></span><input id="filter-slots-min" type="text">
+              </div>
+            </label>
+            <label>
+              <span>Онлайн</span>
+              <div class="double-field">
+                <input id="field-online-min" type="text"><span class="delimiter"></span><input id="field-online-min" type="text">
+              </div>
+            </label>
+            <label>
+              <span>Адрес</span>
+              <input id="filter-address" type="text">
+            </label>
+            <label>
+              <span>Порт</span>
+              <input id="filter-port" type="text">
+            </label>
+            <label>
+              <input type="checkbox" id="filter-dont-show-filled">
+              <div></div>
+              <span class="checkbox-label">Без ботов</span>
+            </label>
+            <label>
+              <input type="checkbox" id="filter-dont-show-filled">
+              <div></div>
+              <span class="checkbox-label">Без пароля</span>
+            </label>
+            <label>
+              <input type="checkbox" id="filter-dont-show-filled">
+              <div></div>
+              <span class="checkbox-label">Не показыать заполненные сервера</span>
+            </label>
+            <div class="double-button flex">
+              <input type="button" value="Применить">
+              <input type="button" value="Сбросить">
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Добавить свой сервер</div>
+          <div class="panel-content">
+            <label>
+              <input id="address-field" type="text" placeholder="Адрес">
+            </label>
+            <label>
+              <input id="port-field" type="text" placeholder="Порт">
+            </label>
+            <label>
+              <select id="game-select">
+                <option value="Counter-Strike: Source">CSS</option>
+                <option value="Counter-Strike 1.6">CS 1.6</option>
+                <option value="Garry`s Mod">Garry's Mod</option>
+                <option value="Half-Life 1 Deathmatch">HL1</option>
+                <option value="Counter-Strike: Condition Zero">CS:CZ</option>
+                <option value="Counter-Strike: Global Offensive">CS:GO</option>
+              </select>
+            </label>
+            <label>
+              <input type="button" value="Добавить">
+            </label>
+          </div>
+        </div>
       </div>
     </div>
     <div class="page-404 hidden">
