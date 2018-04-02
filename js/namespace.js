@@ -25,5 +25,4 @@ var monitoringNamespace = {
   views: null
 };
 
-if (DEBUG)
-  console.log('Сайт запущен в режиме отладки!');
+mUtils.debug('Сайт запущен в режиме отладки!');
