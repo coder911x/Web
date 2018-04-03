@@ -68,7 +68,7 @@ void function() {
       });
       $('.' + type + '-list').html(
         !markup
-          ? '<div class="empty-table">Таблица пуста</div>'
+          ? '<tr><td class="empty-table" colspan="10">Таблица пуста</td></tr>'
           : markup
         );
     },

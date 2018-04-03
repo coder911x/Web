@@ -1,9 +1,30 @@
 .page-server-info {
-  margin: 0 auto;
+  max-width: 1400px;
+  margin: 30px auto;
   display: flex;
 }
 
 #gallery {
   height: 200px;
   background: url(../images/test-map-image.jpg) no-repeat center / cover;
+}
+
+.page-server-info table {
+  margin-top: 20px;
+}
+
+.page-server-info .info {
+  flex: 1 1 auto;
+}
+
+.page-server-info .players {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 20px;
+  flex: 0 0 auto;
+}
+
+.page-server-info .players th,
+.page-server-info .players td {
+  text-align: center;
 }

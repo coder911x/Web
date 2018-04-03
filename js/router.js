@@ -41,7 +41,7 @@ void function(ns) {
     show: function(target) {
       $('.page-' + this.pages.join(', .page-')).addClass('hidden');
       $('.page-' + target).removeClass('hidden');
-      ~['home', '404', 'server-info'].indexOf(target)
+      ~['home', '404'].indexOf(target)
         ? $('.content-container').addClass('centeredContent')
         : $('.content-container').removeClass('centeredContent');
     }
