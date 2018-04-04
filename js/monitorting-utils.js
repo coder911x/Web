@@ -73,7 +73,7 @@ void function() {
         );
     },
     // Отладочные логи
-    debug() {
+    debug: function() {
       if (DEBUG)
         console.log.apply(this, arguments);
     }

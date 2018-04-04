@@ -118,7 +118,7 @@ input[type="checkbox"]:checked + div::before {
 
 /* Таблицы */
 table {
-  table-layout: fixed;
+  width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }

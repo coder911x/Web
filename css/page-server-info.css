@@ -1,5 +1,5 @@
 .page-server-info {
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 30px auto;
   display: flex;
   color: #bbb;
@@ -9,10 +9,6 @@
   height: 200px;
   margin-bottom: 15px;
   background: url(../images/test-map-image.jpg) no-repeat center / cover;
-}
-
-.page-server-info table {
-  margin-top: 20px;
 }
 
 .page-server-info .info {
@@ -44,10 +40,6 @@
   text-align: center;
 }
 
-/* .page-server-info .row {
-  line-height: 1.5;
-} */
-
 #info-name,
 #info-address,
 #info-online,
@@ -60,4 +52,8 @@
 .info {
   display: flex;
   flex-direction: column;
+}
+
+.bots {
+  margin-top: 20px;
 }
