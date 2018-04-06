@@ -11,7 +11,10 @@ void function(ns) {
 
     var route = utils.getHash();
     
+    if (ns.server != null)
+      ns.socket('unsubscribeFromWatching');
     ns.server = null;
+    
     $('.menu a').removeClass('active');
     $('.menu a[href="#' + route + '"]').addClass('active');
     $('#message-404').text('Запрашиваемая страница не найдена!');
