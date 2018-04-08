@@ -19,6 +19,9 @@ void function(ns) {
     $('.menu a[href="#' + route + '"]').addClass('active');
     $('#message-404').text('Запрашиваемая страница не найдена!');
 
+    document.body.scrollIntoView();
+    $('.menu, .panel').addClass('collapsed');
+
     if (route == 'home') {
       views.show('home');
     } else if (route == 'server-info') {
